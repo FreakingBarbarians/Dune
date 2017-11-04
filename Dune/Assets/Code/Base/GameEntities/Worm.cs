@@ -17,6 +17,6 @@ public class Worm : GridBehaviour {
 	private int mode = 0;
 
 	void Start() {
-
+				
 	}
 }
