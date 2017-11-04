@@ -21,7 +21,6 @@ public partial class GridManager : MonoBehaviour {
 	public List<GameObject> SpawnObjects;
 	public List<float> SpawnWeights;
 
-
 	void Update () {
 		if (timer <= 0) {
 			// time until next spawn
@@ -48,7 +47,7 @@ public partial class GridManager : MonoBehaviour {
 			for(int x = 0; x < gridPrefab.size; x++){
 
 				// not enough space anyways
-				if (potential + x > gameSize) {
+				if (potential + x > gameSize - 1) {
 					good = false; 
 					break;
 				}

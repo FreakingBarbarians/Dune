@@ -16,5 +16,4 @@ public class GridCell : MonoBehaviour {
 		rendy = GetComponent<SpriteRenderer> ();
 		rendy.sprite = Utils.getRandomEntry<Sprite>(sprites);
 	}
-
 }

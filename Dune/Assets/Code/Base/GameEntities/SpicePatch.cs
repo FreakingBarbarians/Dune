@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpicePatch : MonoBehaviour, IGridInteractable {
+public class SpicePatch : GridBehaviour, IGridInteractable {
 
+	[Range(0,1)]
 	public float tickRate;
+	[Range(0,10)]
 	public int spiceValue;
 
 	private float timer;
@@ -34,6 +36,7 @@ public class SpicePatch : MonoBehaviour, IGridInteractable {
 
 	private void tick() {
 		spiceValue -= 1;
+		timer = tickRate;
 		// @TODO: Add score stuff!
 	}
 }
