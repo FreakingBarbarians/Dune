@@ -40,14 +40,11 @@ public class Fremen : GridBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space)){
-			// interact!
-			// continuously play the interaction animation, should be interruptable...
-			interacting = true;
-
+			startInteracting ();
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space)) {
-		
+			stopInteracting ();
 		}
 
 		if (moving) {
@@ -66,6 +63,33 @@ public class Fremen : GridBehaviour {
 		}
 	}
 
+	private void startInteracting(){
+		// interact!
+		// continuously play the interaction animation, should be interruptable...
+
+		IGridInteractable interactable = (IGridInteractable) GridManager.instance.getObjectAt (xPos);
+
+		if (interactable == null) {
+			return;
+		}
+
+		interacting = true;
+		interactable.StartInteract ();
+		Debug.Log ("INTERACT WITH ME");
+	}
+
+	private void stopInteracting(){
+		interacting = false;
+
+		IGridInteractable interactable = (IGridInteractable) GridManager.instance.getObjectAt (xPos);
+
+		if (interactable == null) {
+			return;
+		}
+
+		interactable.StopInteract();	
+	}
+
 	public virtual void moveLeft(){
 		if (xPos == 0 || moving) {
 			return;
@@ -77,6 +101,9 @@ public class Fremen : GridBehaviour {
 		elapsedTime = 0;
 		xPos--;
 		transform.localScale = new Vector3 (-1, 1, 1);
+
+		stopInteracting ();
+
 		// @TODO: Notify some manager when a step was taken to detect rhythmy!!!
 	}
 
@@ -92,6 +119,9 @@ public class Fremen : GridBehaviour {
 		elapsedTime = 0;
 		xPos++;
 		transform.localScale = new Vector3 (1, 1, 1);
+
+		stopInteracting ();
+
 		// @TODO: Notify some manager when a step was taken to detect rhythmy!!!
 		// I CANT SPELL RHYTHM FUCK IT OK
 	}

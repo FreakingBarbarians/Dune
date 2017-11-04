@@ -64,7 +64,8 @@ public partial class GridManager : MonoBehaviour {
 				GameObject spawned = Instantiate(prefab);
 
 				for(int x = 0; x < gridPrefab.size; x ++){
-					cells[potential + x].occupied = true;
+					cells [potential + x].occupied = true;
+					cells [potential + x].setObject(spawned.GetComponent<GridBehaviour>());
 				}
 
 				spawned.transform.position = transform.position;

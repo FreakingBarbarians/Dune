@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 0
   size: 2
-  tickRate: 0.4
+  tickRate: 0.5
   spiceValue: 5
 --- !u!212 &212691354770947092
 SpriteRenderer:

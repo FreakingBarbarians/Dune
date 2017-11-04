@@ -22,4 +22,8 @@ public class GridCell : MonoBehaviour {
 	public GridBehaviour getObject(){
 		return obj;
 	}
+
+	public void setObject(GridBehaviour obj){
+		this.obj = obj;
+	}
 }

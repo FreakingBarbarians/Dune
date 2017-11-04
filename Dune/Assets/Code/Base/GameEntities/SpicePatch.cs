@@ -22,6 +22,10 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 		mining = false;
 	}
 
+	public string GetName(){
+		return "spice";
+	}
+
 	// Use this for initialization
 	void Start () {
 		timer = tickRate;
@@ -30,14 +34,23 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 	// Update is called once per frame
 	void Update () {
 		if (timer <= 0) {
-			
+			tick ();
 		}
-		timer -= Time.deltaTime;
+		if (mining) {
+			timer -= Time.deltaTime;
+		}
 	}
 
 	private void tick() {
 		spiceValue -= 1;
 		timer = tickRate;
+		ScoreManager.instance.addScore (10);
 		// @TODO: Add score stuff!
+		if(spiceValue <= 0){
+			OnDeath ();
+			ScoreManager.instance.addScore (100);
+			GameObject.Destroy (this.gameObject);
+		}
 	}
+
 }

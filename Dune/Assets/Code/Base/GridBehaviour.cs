@@ -17,6 +17,6 @@ public class GridBehaviour : MonoBehaviour {
 	}
 
 	public virtual void OnDeath(){
-		
+		GridManager.instance.free (xPos, size);
 	}
 }

@@ -57,7 +57,10 @@ public partial class GridManager : MonoBehaviour {
 		return cells [xPos].getObject ();
 	}
 
-	public void Interact(){
-		
+	public void free(int start, int size){
+		for (int i = start; i < gameSize && i < start + size; i++) {
+			cells [i].occupied = false;
+			cells [i].setObject (null);
+		}
 	}
 }
