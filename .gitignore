@@ -1,9 +1,13 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+Dune/[Ll]ibrary/
+Dune/[Tt]emp/
+Dune/[Oo]bj/
+Dune/[Bb]uild/
+Dune/[Bb]uilds/
+Dune/Assets/AssetStoreTools*
+
+Dune/Library/metadata
+
+UnityLockFile
 
 # Visual Studio 2015 cache directory
 /.vs/

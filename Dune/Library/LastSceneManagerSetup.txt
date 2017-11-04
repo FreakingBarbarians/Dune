@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Ray_Scene_DO_NOT_TOUCH.unity
-  isLoaded: 1
-  isActive: 1
