@@ -10,10 +10,16 @@ public class GridCell : MonoBehaviour {
 	public Sprite[] sprites;
 
 	private SpriteRenderer rendy;
+	private GridBehaviour obj;
 
 	void Start(){
 		occupied = false;
 		rendy = GetComponent<SpriteRenderer> ();
 		rendy.sprite = Utils.getRandomEntry<Sprite>(sprites);
+		obj = null;
+	}
+
+	public GridBehaviour getObject(){
+		return obj;
 	}
 }

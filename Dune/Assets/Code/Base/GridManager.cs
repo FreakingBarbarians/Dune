@@ -49,4 +49,15 @@ public partial class GridManager : MonoBehaviour {
 	public int getGameSize(){
 		return gameOn ? gameSize : -1;
 	}
+
+	public GridBehaviour getObjectAt(int xPos){
+		if (xPos >= gameSize || xPos < 0) {
+			return null;
+		}
+		return cells [xPos].getObject ();
+	}
+
+	public void Interact(){
+		
+	}
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 
+
 public class Fremen : GridBehaviour {
 
 	public int facing = 1;
@@ -17,6 +19,7 @@ public class Fremen : GridBehaviour {
 	public int moveDirection;
 
 	public bool moving = false;
+	public bool interacting = false;
 
 	private Vector3 newPos;
 	private Vector3 oldPos;
@@ -34,6 +37,17 @@ public class Fremen : GridBehaviour {
 		if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) {
 			moveRight ();
 			Debug.Log ("R");
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)){
+			// interact!
+			// continuously play the interaction animation, should be interruptable...
+			interacting = true;
+
+		}
+
+		if (Input.GetKeyUp (KeyCode.Space)) {
+		
 		}
 
 		if (moving) {

@@ -6,6 +6,7 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 
 	[Range(0,1)]
 	public float tickRate;
+
 	[Range(0,10)]
 	public int spiceValue;
 
