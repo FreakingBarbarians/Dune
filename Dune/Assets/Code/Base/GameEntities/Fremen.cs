@@ -101,11 +101,12 @@ public class Fremen : GridBehaviour {
 		elapsedTime = 0;
 		xPos--;
 		transform.localScale = new Vector3 (-1, 1, 1);
+        
+        stopInteracting ();
 
-		stopInteracting ();
-
-		// @TODO: Notify some manager when a step was taken to detect rhythmy!!!
-	}
+        // @TODO: Notify some manager when a step was taken to detect rhythmy!!!
+        RythmManager.instance.step();
+    }
 
 	public virtual void moveRight(){
 		// account for base 0'ness
@@ -119,10 +120,11 @@ public class Fremen : GridBehaviour {
 		elapsedTime = 0;
 		xPos++;
 		transform.localScale = new Vector3 (1, 1, 1);
+        
+        stopInteracting ();
 
-		stopInteracting ();
-
-		// @TODO: Notify some manager when a step was taken to detect rhythmy!!!
-		// I CANT SPELL RHYTHM FUCK IT OK
-	}
+        // @TODO: Notify some manager when a step was taken to detect rhythmy!!!
+        // I CANT SPELL RHYTHM FUCK IT OK
+        RythmManager.instance.step();
+    }
 }
