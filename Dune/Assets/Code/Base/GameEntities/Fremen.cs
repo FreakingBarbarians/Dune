@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // 
 
@@ -138,5 +139,11 @@ public class Fremen : GridBehaviour {
         // I CANT SPELL RHYTHM FUCK IT OK
         RythmManager.instance.step();
         walkingAnimation.playOnce();
+    }
+
+    public override void OnDeath()
+    {
+        Debug.Log("I'm ded");
+        SceneManager.LoadScene("LoseScene");
     }
 }

@@ -116,6 +116,7 @@ public class Worm : GridBehaviour {
         }
 
         if (Fremen.instance.xPos >= xPos && Fremen.instance.xPos <= xPos + size) {
+            Fremen.instance.gameObject.GetComponent<GridBehaviour>().OnDeath();
             Fremen.instance.gameObject.SetActive(false);
             // Lose The Game
         }
