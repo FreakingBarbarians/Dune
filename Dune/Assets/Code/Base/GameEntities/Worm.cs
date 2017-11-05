@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Worm : GridBehaviour {
 	[Range(0,5)]
 	public float moveTime;
@@ -25,14 +24,23 @@ public class Worm : GridBehaviour {
 
 	private bool moving;
 
+	[Range(0,1)]
+	public float approachRange;
+
+	public float killTime;
+	public bool killing = false;
+
+	public Animator anim;
+
     private void Start()
     {
         oldPos = transform.position;
+		anim = GetComponent<Animator> ();
     }
 
     void Update(){
         
-        if (moving) {
+        if (moving && !killing) {
             Vector3 deltapos = newPos - oldPos;
             transform.position = oldPos + deltapos * (timer / moveTime);
 
@@ -49,7 +57,18 @@ public class Worm : GridBehaviour {
         if (distanceCur >= distanceMax) {
             OnDeath();
         }
+
+		if (distanceCur >= approachRange * distanceMax) {
+			anim.SetBool ("Approach", true);
+		}
+
+		if (killing) {
+			transform.position += new Vector3 (0, -1, 0) * Time.deltaTime;
+		}
+		
 	}
+
+
 
 	private void moveRandom(){
         oldPos = newPos;
@@ -102,7 +121,7 @@ public class Worm : GridBehaviour {
         closenessProgress.progress(distanceCur);
 
         child.transform.localScale = new Vector3(size, size, 1);
-        child.transform.localPosition = new Vector3((size-1)*0.5f, 0.5f + size * 0.25f, 0); // scaling for wormies
+        child.transform.localPosition = new Vector3((size-1)*0.5f, 0.5f + size * 0.4f, 0); // scaling for wormies
         moveRandom();
     }
     public override void OnDeath()
@@ -122,6 +141,7 @@ public class Worm : GridBehaviour {
         }
 
         WormManager.instance.free(xPos, size);
-        GameObject.Destroy(this.gameObject);
+        GameObject.Destroy(this.gameObject, 1f);
+		killing = true;
     }
 }

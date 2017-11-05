@@ -55,6 +55,7 @@ public class WormManager : MonoBehaviour {
         float max_x = Mathf.Log(GridManager.instance.getGameSize(), 2);
         float picker = UnityEngine.Random.value * max_x; // safety number
         int picked = (int) Mathf.Ceil(Mathf.Pow(2, picker))/2;
+		picked = Mathf.Min (picked, 5);
 
         Debug.Log("Calculated max_x: " + max_x + " picker: " + picker + " picked: " + picked + " from:" + 0.1f * Mathf.Pow(2, picker));
 
