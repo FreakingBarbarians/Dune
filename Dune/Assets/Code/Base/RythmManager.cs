@@ -6,6 +6,7 @@ public class RythmManager : MonoBehaviour
 {
 
     // NICE CODE JASMIN & ESAAC 10/10
+    //Thanks! :D
 
     public static RythmManager instance;
 
@@ -30,11 +31,6 @@ public class RythmManager : MonoBehaviour
         Debug.Log("Rythm: " + rythmScore);
         InvokeRepeating("shrinkRythmBar", 0, 5);
         progressy.set(maxRhythm);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void step()
