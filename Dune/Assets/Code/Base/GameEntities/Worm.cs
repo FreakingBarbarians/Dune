@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Worm : GridBehaviour {
 	[Range(0,5)]
 	public float moveTime;
@@ -25,21 +24,34 @@ public class Worm : GridBehaviour {
 
 	private bool moving;
 
+	[Range(0,1)]
+	public float approachRange;
+
+	public float killTime;
+	public bool killing = false;
+
+	public Animator anim;
+
     private void Start()
     {
         oldPos = transform.position;
+		anim = GetComponent<Animator> ();
     }
 
     void Update(){
         
-        if (moving) {
+        if (moving && !killing) {
             Vector3 deltapos = newPos - oldPos;
             transform.position = oldPos + deltapos * (timer / moveTime);
 
             timer += Time.fixedDeltaTime;
             if (timer >= moveTime) {
                 transform.position = newPos;
-                moveRandom();
+				if (RythmManager.instance.rythmScore >= RythmManager.instance.maxRhythm / 2) {
+					MoveTowardsPlayer ();
+				} else {
+					moveRandom ();
+				}
             }
         }
 
@@ -49,7 +61,18 @@ public class Worm : GridBehaviour {
         if (distanceCur >= distanceMax) {
             OnDeath();
         }
+
+		if (distanceCur >= approachRange * distanceMax) {
+			anim.SetBool ("Approach", true);
+		}
+
+		if (killing) {
+			transform.position += new Vector3 (0, -1, 0) * Time.deltaTime;
+		}
+		
 	}
+
+
 
 	private void moveRandom(){
         oldPos = newPos;
@@ -90,6 +113,35 @@ public class Worm : GridBehaviour {
 
         moving = true;
 	}
+
+	private void MoveTowardsPlayer(){
+		oldPos = newPos;
+		timer = 0;
+		int go;
+
+		if (Fremen.instance.xPos - xPos > 0) {
+			go = 1;
+		} else if (Fremen.instance.xPos - xPos < 0){
+			go = -1;
+		} else {
+			go = 0;
+		}
+
+		// can't move left
+		if ((xPos == 0 || WormManager.instance.wormCells[xPos - 1].occupied) && go == -1)
+		{
+			go = 0;
+		}
+		// can't move right
+		else if ((xPos + size >= WormManager.instance.wormCells.Length || WormManager.instance.wormCells[xPos + size].occupied) && go == 1)
+		{
+			go = 0;
+		}
+
+		newPos = transform.position + new Vector3(go, 0, 0);
+		moving = true;
+
+	}
     public void set(int xPos, float distanceMax, int size) {
         Debug.Log(size);
         this.xPos = xPos;
@@ -102,11 +154,13 @@ public class Worm : GridBehaviour {
         closenessProgress.progress(distanceCur);
 
         child.transform.localScale = new Vector3(size, size, 1);
-        child.transform.localPosition = new Vector3((size-1)*0.5f, 0.5f + size * 0.25f, 0); // scaling for wormies
+        child.transform.localPosition = new Vector3((size-1)*0.5f, 0.5f + size * 0.4f, 0); // scaling for wormies
         moveRandom();
     }
+
     public override void OnDeath()
     {
+		child.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
         for (int i = 0; i < size; i++) {
             GridBehaviour gridObj;
             gridObj = GridManager.instance.getObjectAt(i + xPos);
@@ -122,6 +176,7 @@ public class Worm : GridBehaviour {
         }
 
         WormManager.instance.free(xPos, size);
-        GameObject.Destroy(this.gameObject);
+        GameObject.Destroy(this.gameObject, 10f);
+		killing = true;
     }
 }

@@ -5,6 +5,20 @@ using System;
 using System.Collections.Generic;
 public class Utils {
 
+
+	public static T interpolateEntry<T>(T[] source, float cur, float max){
+
+		if (cur >= max) {
+			return source [source.Length - 1];
+		}
+
+		if (cur <= 0) {
+			return source [0];
+		}
+
+		return source [(int)((cur / max) * (source.Length - 1))];
+	}
+
 	public static T getRandomEntry<T>(List<T> list){
 		if (list.Count < 1) {
 			return default(T);
