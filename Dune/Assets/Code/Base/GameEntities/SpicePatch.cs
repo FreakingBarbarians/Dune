@@ -53,4 +53,9 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 		}
 	}
 
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        GameObject.Destroy(this.gameObject);
+    }
 }

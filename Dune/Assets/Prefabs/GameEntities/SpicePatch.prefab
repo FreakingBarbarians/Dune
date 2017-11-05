@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4613510151426294}
   - component: {fileID: 212691354770947092}
+  - component: {fileID: 114722024300427736}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -85,6 +86,36 @@ MonoBehaviour:
   size: 2
   tickRate: 0.5
   spiceValue: 5
+--- !u!114 &114722024300427736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865561709197076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ea2151774d4dc42aafe560335c4d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim:
+  - {fileID: 21300000, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300002, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300004, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300006, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300008, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300010, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300012, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300014, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300016, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300018, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300020, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300022, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300024, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300026, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300028, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  - {fileID: 21300030, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
+  rendy: {fileID: 212691354770947092}
+  animationTime: 1
 --- !u!212 &212691354770947092
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +125,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -110,7 +140,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -119,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 41288013494e24fb9933f1dc7a84efe9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93558637c4f75624ea7b9fcb3511fd6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

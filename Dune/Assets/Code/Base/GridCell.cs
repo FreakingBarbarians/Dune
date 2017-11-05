@@ -5,18 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class GridCell : MonoBehaviour {
 	public int xPos;
-	public bool occupied;
+    public bool occupied = false;
 
 	public Sprite[] sprites;
 
 	private SpriteRenderer rendy;
-	private GridBehaviour obj;
+    private GridBehaviour obj = null;
 
 	void Start(){
-		occupied = false;
 		rendy = GetComponent<SpriteRenderer> ();
 		rendy.sprite = Utils.getRandomEntry<Sprite>(sprites);
-		obj = null;
 	}
 
 	public GridBehaviour getObject(){

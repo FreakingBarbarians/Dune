@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4171096857681474}
   - component: {fileID: 212982155344581122}
   - component: {fileID: 114227113788077832}
+  - component: {fileID: 114771865148837778}
   m_Layer: 0
   m_Name: Fremen
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334273227613006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.9258502, y: -0.15568325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,10 +54,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPos: 0
+  size: 0
   facing: 1
   moveTime: 0.23
   moveDirection: 0
   moving: 0
+  interacting: 0
+  walkingAnimation: {fileID: 114771865148837778}
+--- !u!114 &114771865148837778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1334273227613006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083303c47f2b9c24babffc5eded744b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim:
+  - {fileID: 21300000, guid: cb6fb20c073abce4db442318ba45cb84, type: 3}
+  - {fileID: 21300002, guid: cb6fb20c073abce4db442318ba45cb84, type: 3}
+  - {fileID: 21300004, guid: cb6fb20c073abce4db442318ba45cb84, type: 3}
+  rendy: {fileID: 212982155344581122}
+  animationTime: 0.23
+  shouldAnimate: 0
 --- !u!212 &212982155344581122
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: -1935557815
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aed766204276e4e4babc6fc16426c8a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb6fb20c073abce4db442318ba45cb84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

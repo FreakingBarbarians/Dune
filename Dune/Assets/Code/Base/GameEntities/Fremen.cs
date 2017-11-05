@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Fremen : GridBehaviour {
 
+    public static Fremen instance;
+
 	public int facing = 1;
 
 	[Range(0,1)]
@@ -24,7 +26,15 @@ public class Fremen : GridBehaviour {
 	private Vector3 newPos;
 	private Vector3 oldPos;
 
+    public OneShotAnimation walkingAnimation;
+
 	void Start() {
+        if (instance != null) {
+            Debug.Log("This town ain't big enough for the two of us...");
+            GameObject.Destroy(this.gameObject);
+        }
+
+        instance = this;
 		moving = false;
 	}
 
@@ -90,7 +100,7 @@ public class Fremen : GridBehaviour {
 		interactable.StopInteract();	
 	}
 
-	public virtual void moveLeft(){
+	public override void moveLeft(){
 		if (xPos == 0 || moving) {
 			return;
 		}
@@ -106,9 +116,10 @@ public class Fremen : GridBehaviour {
 
         // @TODO: Notify some manager when a step was taken to detect rhythmy!!!
         RythmManager.instance.step();
+        walkingAnimation.playOnce();
     }
 
-	public virtual void moveRight(){
+	public override void moveRight(){
 		// account for base 0'ness
 		if (xPos == GridManager.instance.getGameSize() - 1 || moving) {
 			return;	
@@ -126,5 +137,6 @@ public class Fremen : GridBehaviour {
         // @TODO: Notify some manager when a step was taken to detect rhythmy!!!
         // I CANT SPELL RHYTHM FUCK IT OK
         RythmManager.instance.step();
+        walkingAnimation.playOnce();
     }
 }

@@ -21,25 +21,42 @@ public partial class GridManager : MonoBehaviour {
 		}
 		instance = this;
 		gameOn = false;
-		createGame (10);
+		createGame (50);
 	}
 
 	public void createGame(int gameSize){
 		List<GridCell> temp = new List<GridCell> ();
 		for(int i = 0; i < gameSize; i ++){
+
+            
+
 			GameObject cell = Instantiate (gridCellPrefab);
 			GridCell gcell = cell.GetComponent<GridCell> ();
 			gcell.xPos = i;
 			cell.transform.position = this.transform.position;
 			cell.transform.position += new Vector3(i, 0, 0);
 			temp.Add (gcell);
-		}
+
+            // create camera sentinels
+
+            if (i == 0) {
+                cell.AddComponent<BoxCollider2D>();
+                Camera.main.gameObject.GetComponent<CameraController>().LeftSentinel = cell;
+            }
+
+            if (i == gameSize - 1) {
+                cell.AddComponent<BoxCollider2D>();
+                Camera.main.gameObject.GetComponent<CameraController>().RightSentinel = cell;
+            }
+        }
 
 		cells = temp.ToArray ();
 
 		// create fremen
 		GameObject fremen = Instantiate (fremenPrefab);
-		fremen.transform.position = this.transform.position;
+
+		fremen.transform.position = this.transform.position + new Vector3(gameSize/2, 0,0);
+        fremen.GetComponent<GridBehaviour>().xPos = gameSize / 2;
 
 		Camera.main.transform.position += new Vector3 (gameSize / 2, 0, 0);
 		gameOn = true;
