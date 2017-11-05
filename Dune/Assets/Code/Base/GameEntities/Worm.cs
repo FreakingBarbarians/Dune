@@ -47,7 +47,11 @@ public class Worm : GridBehaviour {
             timer += Time.fixedDeltaTime;
             if (timer >= moveTime) {
                 transform.position = newPos;
-                moveRandom();
+				if (RythmManager.instance.rythmScore >= RythmManager.instance.maxRhythm / 2) {
+					MoveTowardsPlayer ();
+				} else {
+					moveRandom ();
+				}
             }
         }
 
@@ -109,6 +113,35 @@ public class Worm : GridBehaviour {
 
         moving = true;
 	}
+
+	private void MoveTowardsPlayer(){
+		oldPos = newPos;
+		timer = 0;
+		int go;
+
+		if (Fremen.instance.xPos - xPos > 0) {
+			go = 1;
+		} else if (Fremen.instance.xPos - xPos < 0){
+			go = -1;
+		} else {
+			go = 0;
+		}
+
+		// can't move left
+		if ((xPos == 0 || WormManager.instance.wormCells[xPos - 1].occupied) && go == -1)
+		{
+			go = 0;
+		}
+		// can't move right
+		else if ((xPos + size >= WormManager.instance.wormCells.Length || WormManager.instance.wormCells[xPos + size].occupied) && go == 1)
+		{
+			go = 0;
+		}
+
+		newPos = transform.position + new Vector3(go, 0, 0);
+		moving = true;
+
+	}
     public void set(int xPos, float distanceMax, int size) {
         Debug.Log(size);
         this.xPos = xPos;
@@ -124,8 +157,10 @@ public class Worm : GridBehaviour {
         child.transform.localPosition = new Vector3((size-1)*0.5f, 0.5f + size * 0.4f, 0); // scaling for wormies
         moveRandom();
     }
+
     public override void OnDeath()
     {
+		child.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
         for (int i = 0; i < size; i++) {
             GridBehaviour gridObj;
             gridObj = GridManager.instance.getObjectAt(i + xPos);
@@ -141,7 +176,7 @@ public class Worm : GridBehaviour {
         }
 
         WormManager.instance.free(xPos, size);
-        GameObject.Destroy(this.gameObject, 1f);
+        GameObject.Destroy(this.gameObject, 10f);
 		killing = true;
     }
 }
