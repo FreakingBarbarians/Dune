@@ -153,7 +153,11 @@ public class Fremen : GridBehaviour {
 
     public override void OnDeath()
     {
-        Debug.Log("I'm ded");
-        SceneManager.LoadScene("LoseScene");
+        StartCoroutine(Wait());
+    }		
+    IEnumerator Wait()
+	{		
+	    yield return new WaitForSeconds(4);		
+        SceneManager.LoadScene("LoseScene");        
     }
 }
