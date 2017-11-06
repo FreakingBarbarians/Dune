@@ -333,8 +333,10 @@ MonoBehaviour:
   minRate: 3.72
   SpawnObjects:
   - {fileID: 1076604106563368, guid: cb8fe7e002ca94155950f00612dd2e25, type: 2}
+  - {fileID: 1703485246889288, guid: d661982d1928cb74f92286f7575a8b3d, type: 2}
   SpawnWeights:
-  - 1
+  - 5
+  - 5
 --- !u!114 &1024272144
 MonoBehaviour:
   m_ObjectHideFlags: 0
