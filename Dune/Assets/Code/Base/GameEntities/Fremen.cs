@@ -92,6 +92,10 @@ public class Fremen : GridBehaviour {
 	}
 
 	private void stopInteracting(){
+		if (!interacting) {
+			return;
+		}
+
 		interacting = false;
 
 		IGridInteractable interactable = (IGridInteractable) GridManager.instance.getObjectAt (xPos);
