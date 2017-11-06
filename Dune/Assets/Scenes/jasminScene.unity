@@ -518,6 +518,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114772979583099818, guid: d661982d1928cb74f92286f7575a8b3d,
+        type: 2}
+      propertyPath: anim.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4272545685470090, guid: d661982d1928cb74f92286f7575a8b3d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 31
@@ -550,6 +555,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114026611750012928, guid: d661982d1928cb74f92286f7575a8b3d,
+        type: 2}
+      propertyPath: tickRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114772979583099818, guid: d661982d1928cb74f92286f7575a8b3d,
+        type: 2}
+      propertyPath: anim.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300002, guid: 05a624950aa7eee479a702062a12496e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d661982d1928cb74f92286f7575a8b3d, type: 2}
   m_IsPrefabParent: 0

@@ -30,7 +30,7 @@ public class LoopingAnimation : AnimationBase {
         if (anim.Length == 0) {
             return null;
         }
-        return anim[(int)((cur / animTime) * ((float)anim.Length - 1))];
+        return anim[(int)((cur / animTime) * ((float)anim.Length))];
     }
 
 }
