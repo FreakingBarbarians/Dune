@@ -8,6 +8,8 @@ public class ScoreManager : MonoBehaviour {
 
 	public int score;
 
+	public GameObject scorePrefab;
+
 	void Start () {
 		if (instance != null) {
 			Debug.Log ("HEY HEY HEY MAN WTF THS IS A SINGLETON " + GetType ().Name + " will now self-destruct");
@@ -20,6 +22,12 @@ public class ScoreManager : MonoBehaviour {
 	public void addScore(int amt){
 		score += amt;
 		ScoreDisplay.instance.notify ();
+	}
+
+	public void CreateScoreObject(int amt, Vector3 pos){
+		GameObject score = Instantiate (scorePrefab);
+		score.transform.position = pos;
+		score.GetComponent<ScoreObject> ().setScore (amt);
 	}
 
 }
