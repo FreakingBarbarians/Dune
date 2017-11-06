@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Worm : GridBehaviour {
+
+	public AudioClip wormApproach;
+	public AudioClip wormAttack;
+
+	public AudioSource audioSource;
+
 	[Range(0,5)]
 	public float moveTime;
 
@@ -32,14 +38,21 @@ public class Worm : GridBehaviour {
 
 	public Animator anim;
 
+	private bool ranDeath = false;
+
     private void Start()
     {
         oldPos = transform.position;
 		anim = GetComponent<Animator> ();
+		audioSource.loop = true;
+		audioSource.clip = wormApproach;
+		audioSource.Play ();
+		audioSource.volume = (distanceCur / distanceMax);
     }
 
     void Update(){
         
+		audioSource.volume = (distanceCur / distanceMax);
         if (moving && !killing) {
             Vector3 deltapos = newPos - oldPos;
             transform.position = oldPos + deltapos * (timer / moveTime);
@@ -159,6 +172,14 @@ public class Worm : GridBehaviour {
 
     public override void OnDeath()
     {
+		if (ranDeath) {
+			return;
+		}
+
+		audioSource.loop = false;
+		audioSource.clip = wormAttack;
+		audioSource.Play ();
+
 		// transform.position = newPos;
 		child.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
         for (int i = 0; i < size; i++) {
@@ -178,5 +199,6 @@ public class Worm : GridBehaviour {
         WormManager.instance.free(xPos, size);
         GameObject.Destroy(this.gameObject, 3f);
 		killing = true;
+		ranDeath = true;
     }
 }

@@ -33,9 +33,11 @@ public class SoundManager : MonoBehaviour {
 			return;
 		}
 
-		timer += Time.deltaTime;
-		if (timer >= spawnRate) {
-			
+		timer -= Time.deltaTime;
+		if (timer <= 0) {
+			timer = spawnRate + Random.Range (-spawnJitter, spawnJitter);
+			src.clip = Utils.getWeightedEntry<AudioClip> (sounds, weights);
+			src.Play ();
 		}
 	}
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpicePatch : GridBehaviour, IGridInteractable {
 
+	public AudioSource audioSource;
+
 	[Range(0,1)]
 	public float tickRate;
 
@@ -42,6 +44,7 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 	}
 
 	private void tick() {
+		audioSource.Play ();
 		spiceValue -= 1;
 		timer = tickRate;
 		ScoreManager.instance.addScore (10);

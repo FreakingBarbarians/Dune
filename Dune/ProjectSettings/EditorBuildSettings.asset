@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ray_Scene_DO_NOT_TOUCH.unity
+    guid: 30eb17ab52b844b6a9e7427e0c7f7413
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: aeae1f31e9a10b340b2c90f8b68005bc
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 17c7da0a20a7c87448b0246d9f68257a
