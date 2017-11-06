@@ -3,7 +3,7 @@
 Inspired by the works of Frank Herbert, spice worms attack a lonesome soldier collecting spice.
 
 ## Controls
-Left/Right Arrow Key (alternatively A/D) - Move left and right
+Left/Right Arrow Keys (alternatively A/D) - Move left and right
 
 Space - Collect spice patches
 
