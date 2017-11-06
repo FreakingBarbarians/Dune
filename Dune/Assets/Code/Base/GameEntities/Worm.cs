@@ -72,8 +72,6 @@ public class Worm : GridBehaviour {
 		
 	}
 
-
-
 	private void moveRandom(){
         oldPos = newPos;
         timer = 0;
@@ -85,7 +83,7 @@ public class Worm : GridBehaviour {
             go = UnityEngine.Random.Range(0, 2);
         }
         // can't move right
-        else if (xPos + size >= WormManager.instance.wormCells.Length || WormManager.instance.wormCells[xPos + size].occupied)
+        else if (xPos + size >= WormManager.instance.wormCells.Length- 1 || WormManager.instance.wormCells[xPos + size].occupied)
         {
             go = UnityEngine.Random.Range(-1, 1);
         }
@@ -176,7 +174,7 @@ public class Worm : GridBehaviour {
         }
 
         WormManager.instance.free(xPos, size);
-        GameObject.Destroy(this.gameObject, 10f);
+        GameObject.Destroy(this.gameObject, 3f);
 		killing = true;
     }
 }

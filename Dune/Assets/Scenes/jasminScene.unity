@@ -194,7 +194,7 @@ MonoBehaviour:
   - {fileID: 1512780063}
   SpawnWeights:
   - 1
-  - 2
+  - 1
 --- !u!4 &338383502
 Transform:
   m_ObjectHideFlags: 0

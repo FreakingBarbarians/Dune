@@ -45,12 +45,15 @@ public class SpicePatch : GridBehaviour, IGridInteractable {
 		spiceValue -= 1;
 		timer = tickRate;
 		ScoreManager.instance.addScore (10);
+		ScoreManager.instance.CreateScoreObject (10, transform.position);
 		// @TODO: Add score stuff!
 		if(spiceValue <= 0){
 			OnDeath ();
 			ScoreManager.instance.addScore (100);
+			ScoreManager.instance.CreateScoreObject (100, transform.position);
 			GameObject.Destroy (this.gameObject);
 		}
+
 	}
 
     public override void OnDeath()

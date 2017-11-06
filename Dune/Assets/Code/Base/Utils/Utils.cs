@@ -49,7 +49,7 @@ public class Utils {
 
 		T last = entries [0];
 		for (int i = 0; i < entries.Count; i++) {
-			if (weights [i] <= sum) {
+			if (weights [i] <= choose) {
 				last = entries [i];
 			} else {
 				break;
