@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 1024272144}
   - component: {fileID: 1024272145}
   - component: {fileID: 1024272146}
+  - component: {fileID: 1024272147}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -379,6 +380,24 @@ MonoBehaviour:
   wormDistanceFactor: 4.32
   wormCells: []
   wormPrefab: {fileID: 1170282642549938, guid: 40d20cc5e613eac49a16ff2bc9c3a101, type: 2}
+--- !u!114 &1024272147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024272141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab86de1e4ba81444680d82336892c07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  weights:
+  - 2
+  - 2
+  spawnRate: 0
 --- !u!1 &1058057783
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,14 @@ public class SoundManager : MonoBehaviour {
 	public List<AudioClip> sounds;
 	public List<float> weights;
 
+	[Range(0,100)]
 	public float spawnRate;
+	[Range(0,100)]
+	public float spawnJitter;
+
+	private float timer;
+
+	public AudioSource src;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +29,13 @@ public class SoundManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (src.isPlaying) {
+			return;
+		}
+
+		timer += Time.deltaTime;
+		if (timer >= spawnRate) {
 			
+		}
 	}
 }

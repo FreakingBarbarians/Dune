@@ -136,6 +136,7 @@ public class Worm : GridBehaviour {
 			go = 0;
 		}
 
+		xPos += go;
 		newPos = transform.position + new Vector3(go, 0, 0);
 		moving = true;
 
@@ -158,6 +159,7 @@ public class Worm : GridBehaviour {
 
     public override void OnDeath()
     {
+		// transform.position = newPos;
 		child.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
         for (int i = 0; i < size; i++) {
             GridBehaviour gridObj;
