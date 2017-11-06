@@ -1922,7 +1922,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024521892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aafd29cc4243bc46bc06508637fc4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: dbd0e98b44cc586479368d4fb953b67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2026522599
