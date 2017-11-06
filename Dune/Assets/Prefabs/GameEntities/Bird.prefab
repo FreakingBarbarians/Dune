@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4272545685470090}
+  - component: {fileID: 114026611750012928}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -70,6 +71,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114026611750012928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703485246889288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c05b13dc1b0b5d4da208d3bd0ade394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xPos: 0
+  size: 2
+  tickRate: 0.5
 --- !u!114 &114772979583099818
 MonoBehaviour:
   m_ObjectHideFlags: 1
