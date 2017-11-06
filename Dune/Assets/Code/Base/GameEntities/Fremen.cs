@@ -24,6 +24,8 @@ public class Fremen : GridBehaviour {
 	public bool moving = false;
 	public bool interacting = false;
 
+	public AudioSource walkSound;
+
 	private Vector3 newPos;
 	private Vector3 oldPos;
 
@@ -106,6 +108,8 @@ public class Fremen : GridBehaviour {
 			return;
 		}
 
+		walkSound.Play ();
+
 		oldPos = transform.position;
 		newPos = transform.position + new Vector3 (-1, 0, 0);
 		moving = true;
@@ -125,6 +129,8 @@ public class Fremen : GridBehaviour {
 		if (xPos == GridManager.instance.getGameSize() - 1 || moving) {
 			return;	
 		}
+
+		walkSound.Play ();
 
 		oldPos = transform.position;
 		newPos = transform.position + new Vector3 (1, 0, 0);
